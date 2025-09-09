@@ -71,7 +71,7 @@ function buildSignature(data) {
     `</table>` +
     `<img src="/assets/images/FormagraphLogo.jpg" alt="logo" style="display:block; width:110px; padding-top: 1rem; height:auto; border:0" />`
     +
-    `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;"><p>ÉCOLE DE GRAPHISME <br/> FORMATION EN COMMUNICATION GRAPHIQUE ET DIGITAL</p></div>`
+    `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;"><p>ÉCOLE DE GRAPHISME <br/> FORMATION EN COMMUNICATION GRAPHIQUE ET DIGITALE</p></div>`
     +
     (data.mentions
       ? `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">${escapeHtml(
