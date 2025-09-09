@@ -3,54 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Générateur de signature e‑mail</title>
-  <style>
-    :root{
-      --bg:#0b1220;/* page bg */
-      --panel:#ffffff;
-      --muted:#5f6b7b;
-      --primary:#0ea5e9;
-      --radius:14px;
-      --shadow:0 10px 30px rgba(2,6,23,.25);
-    }
-    html,body{height:100%}
-    body{
-      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:#0f172a;
-      background:radial-gradient(1200px 500px at 10% -10%, rgba(255,255,255,.08), transparent), var(--bg);
-      padding:32px; box-sizing:border-box;
-    }
-    .app{max-width:1100px; margin:0 auto; display:grid; grid-template-columns: 1.1fr .9fr; gap:28px}
-    @media (max-width: 980px){.app{grid-template-columns:1fr}}
-
-    .card{background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow);}
-    .card h1{font-size:22px; margin:0 0 4px}
-    .card .sub{color:var(--muted); margin:0 0 18px; font-size:14px}
-
-    form{padding:22px 22px 12px}
-    .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    .grid-3{grid-template-columns: repeat(3, 1fr)}
-    .grid-1{grid-template-columns:1fr}
-    @media (max-width:740px){.grid,.grid-3{grid-template-columns:1fr}}
-
-    label{display:block; font-size:12px; color:#475569; margin:6px 0}
-    input,textarea,select{width:100%; box-sizing:border-box; padding:12px 12px; border:1px solid #e5e7eb; border-radius:12px; font:inherit; background:#fff;}
-    textarea{min-height:78px; resize:vertical}
-    .row{margin-bottom:6px}
-
-    .actions{display:flex; gap:10px; padding:14px 22px 22px}
-    button{padding:11px 14px; border:0; background:#111827; color:#fff; border-radius:12px; font-weight:600; cursor:pointer}
-    button.secondary{background:#0ea5e9}
-    button.ghost{background:#e5e7eb; color:#111827}
-
-    .previewWrap{padding:22px}
-    .previewHead{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
-    .preview{background:#f8fafc; border:1px dashed #cbd5e1; border-radius:12px; padding:18px; overflow:auto}
-    .code{background:#0f172a; color:#e2e8f0; border-radius:12px; padding:16px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; line-height:1.5; white-space:pre; overflow:auto}
-    .small{font-size:12px; color:#64748b}
-    .notice{padding:14px 16px; border-radius:12px; background:#f1f5f9; color:#0f172a; font-size:13px; margin:14px 22px 22px}
-  </style>
+  <title>Maracorp signature</title>
+  <link rel="stylesheet" href="/assets/styles/main.css">
 </head>
 <body>
+
   <div class="app">
 
     <!-- ===================== FORM ===================== -->
@@ -147,112 +104,6 @@
 
   </div>
 
-  <script>
-    const form = document.getElementById('sigForm');
-    const preview = document.getElementById('preview');
-    const codeEl = document.getElementById('code');
-
-    function escapeHtml(s=''){
-      return s.replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-    }
-
-    function buildSignature(data){
-      const c = data.couleur || '#0ea5e9';
-      const fullName = [data.prenom, data.nom].filter(Boolean).join(' ');
-
-      // icons as text for compatibility
-      const icPhone = '☎️';
-      const icPin = '📍';
-      const icMail = '✉️';
-      const icWeb = '🌐';
-
-      // TABLE LAYOUT + INLINE STYLES (safe for most clients)
-      return (
-        `<!-- Signature générée -->\n`+
-        `<table cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size:14px; color:#0f172a; line-height:1.4">`+
-        `<tr>`+
-          `<td style="padding:12px 16px 12px 0; border-left:6px solid ${c}">`+
-            `<div style="font-weight:bold; font-size:16px;">${escapeHtml(fullName)}</div>`+
-            (data.fonction?`<div style="color:#475569; font-size:12px;">${escapeHtml(data.fonction)}${data.entreprise?` · ${escapeHtml(data.entreprise)}`:''}</div>`:'')+
-            `<div style="height:8px"></div>`+
-            `<table cellpadding="0" cellspacing="0" style="font-size:13px; color:#0f172a">`+
-              (data.tel?`<tr><td style="padding:2px 10px 2px 0">${icPhone}</td><td>${escapeHtml(data.tel)}</td></tr>`:'')+
-              (data.adresse?`<tr><td style="padding:2px 10px 2px 0">${icPin}</td><td>${escapeHtml(data.adresse)}</td></tr>`:'')+
-              (data.email?`<tr><td style="padding:2px 10px 2px 0">${icMail}</td><td><a href="mailto:${escapeHtml(data.email)}" style="color:${c}; text-decoration:none">${escapeHtml(data.email)}</a></td></tr>`:'')+
-              (data.site?`<tr><td style="padding:2px 10px 2px 0">${icWeb}</td><td><a href="${escapeHtml(data.site.startsWith('http')?data.site:'https://'+data.site)}" style="color:${c}; text-decoration:none">${escapeHtml(data.site)}</a></td></tr>`:'')+
-            `</table>`+
-            (data.mentions?`<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">${escapeHtml(data.mentions)}</div>`:'')+
-          `</td>`+
-          `<td style="padding:12px 0 12px 16px; vertical-align:top">`+
-            (data.logo?`<img src="${escapeHtml(data.logo)}" alt="logo" style="display:block; width:110px; height:auto; border:0" />`:'')+
-          `</td>`+
-        `</tr>`+
-        `</table>`
-      );
-    }
-
-    function getData(){
-      const fd = new FormData(form);
-      const obj = Object.fromEntries(fd.entries());
-      return obj;
-    }
-
-    function generate(){
-      const sig = buildSignature(getData());
-
-      // Preview
-      preview.innerHTML = sig;
-
-      // Code block
-      codeEl.textContent = sig;
-    }
-
-    async function copyHtml(){
-      try{
-        await navigator.clipboard.writeText(codeEl.textContent);
-        toast('Code HTML copié ✔');
-      }catch(e){ alert("Impossible de copier automatiquement. Copiez manuellement le code.") }
-    }
-
-    async function copyRich(){
-      const html = preview.innerHTML;
-      try{
-        if (navigator.clipboard && window.ClipboardItem){
-          const data = new ClipboardItem({"text/html": new Blob([html], {type:"text/html"}), "text/plain": new Blob([html.replace(/<[^>]+>/g,'')],{type:'text/plain'})});
-          await navigator.clipboard.write([data]);
-        } else {
-          // fallback: open a tiny window to select-copy
-          const w = window.open('', '', 'width=600,height=400');
-          if(w){ w.document.write(html); w.document.close(); w.getSelection().selectAllChildren(w.document.body); }
-        }
-        toast('Signature copiée (riche) ✔');
-      }catch(e){ alert("Copie riche non supportée par ce navigateur.") }
-    }
-
-    function toast(msg){
-      const t = document.createElement('div');
-      t.textContent = msg; t.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#111827; color:#fff; padding:10px 14px; border-radius:12px; z-index:9999; box-shadow:0 6px 22px rgba(0,0,0,.25); font-weight:600';
-      document.body.appendChild(t); setTimeout(()=>t.remove(), 1700);
-    }
-
-    // Bind
-    document.getElementById('genBtn').addEventListener('click', generate);
-    document.getElementById('copyHtml').addEventListener('click', copyHtml);
-    document.getElementById('copyRich').addEventListener('click', copyRich);
-
-    // Demo defaults
-    (function seed(){
-      document.getElementById('prenom').value = 'PRÉNOM';
-      document.getElementById('nom').value = 'NOM';
-      document.getElementById('fonction').value = 'Fonction';
-      document.getElementById('tel').value = '+33 6 00 00 00 00';
-      document.getElementById('adresse').value = 'Votre adresse – Code postal VILLE';
-      document.getElementById('email').value = 'prenom.nom@mail.com';
-      document.getElementById('site').value = 'www.votresite.fr';
-      document.getElementById('logo').value = '';
-      document.getElementById('couleur').value = '#0ea5e9';
-      generate();
-    })();
-  </script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
