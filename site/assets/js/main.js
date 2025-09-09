@@ -13,10 +13,11 @@ function escapeHtml(s = "") {
 }
 
 function buildSignature(data) {
-  const c = data.couleur || "#0ea5e9";
+  const c = data.couleur || "#C41D1D";
   const fullName = [data.prenom, data.nom].filter(Boolean).join(" ");
 
   // icons as text for compatibility
+  const icFix = "☎️";
   const icPhone = "📱";
   const icPin = "📌";
   const icMail = "📧";
@@ -43,6 +44,11 @@ function buildSignature(data) {
           data.tel
         )}</td></tr>`
       : "") +
+      (data.fixe
+      ? `<tr><td style="padding:2px 10px 2px 0">${icFix}</td><td>${escapeHtml(
+          data.fixe
+        )}</td></tr>`
+      : "") +
     (data.adresse
       ? `<tr><td style="padding:2px 10px 2px 0">${icPin}</td><td>${escapeHtml(
           data.adresse
@@ -65,7 +71,7 @@ function buildSignature(data) {
     `</table>` +
     `<img src="/assets/images/FormagraphLogo.jpg" alt="logo" style="display:block; width:110px; padding-top: 1rem; height:auto; border:0" />`
     +
-    `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">FORMATION EN COMMUNICATION GRAPHIQUE ET MULTIMÉDIA</div>`
+    `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;"><p>ÉCOLE DE GRAPHISME <br/> FORMATION EN COMMUNICATION GRAPHIQUE ET DIGITAL</p></div>`
     +
     (data.mentions
       ? `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">${escapeHtml(
@@ -153,15 +159,16 @@ document.getElementById("copyRich").addEventListener("click", copyRich);
 
 // Demo defaults
 (function seed() {
-  document.getElementById("prenom").value = "PRÉNOM";
-  document.getElementById("nom").value = "NOM";
-  document.getElementById("fonction").value = "Fonction";
-  document.getElementById("tel").value = "+33 6 00 00 00 00";
+  document.getElementById("prenom").value = "";
+  document.getElementById("nom").value = "";
+  document.getElementById("fonction").value = "";
+  document.getElementById("tel").value = "";
+  document.getElementById("fixe").value = "";
   document.getElementById("adresse").value =
-    "Votre adresse – Code postal VILLE";
-  document.getElementById("email").value = "prenom.nom@mail.com";
-  document.getElementById("site").value = "www.votresite.fr";
+    "";
+  document.getElementById("email").value = "";
+  document.getElementById("site").value = "";
   document.getElementById("logo").value = "";
-  document.getElementById("couleur").value = "#0ea5e9";
+  document.getElementById("couleur").value = "#C41D1D";
   generate();
 })();

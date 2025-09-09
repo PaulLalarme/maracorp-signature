@@ -103,34 +103,22 @@ textarea {
   height: fit-content;
   gap: 10px;
 }
-.verticalText {
-  display: flex;
-  flex-direction: column;
-}
-.mainLogo {
-  width: 15vw;
-}
+
 @media (max-width: 500px) {
   .actions {
     align-items: center;
     flex-direction: column;
   }
-  .mainLogo {
-  width: 35vw;
-  padding-block: 1rem;
-  }
-  .mainLogoContainer {
-  justify-content: space-around;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  }
+  
+  
   .previewHead {
   display: flex;
   flex-direction: column;
   justify-content: left;
   margin-bottom: 12px;
   }
+
+  .
 }
 
 button {
@@ -168,11 +156,31 @@ button.ghost {
   padding: 18px;
   overflow: auto;
 }
-.mainLogoContainer {
-  justify-content: space-around;
+
+.introHeader {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
+
+.introHeader > .introLogoVertical {
+  width: 20vh;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.introHeader .introLogoVertical > img {
+  width: 100px;
+}
+
+
+.introHeader .introLogoVertical .mainLogoMC > img {
+  
+  height: 10vh;
+}
+
+
+
 .code {
   background: #0f172a;
   color: #e2e8f0;

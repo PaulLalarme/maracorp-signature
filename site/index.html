@@ -14,15 +14,15 @@
     <section class="card">
       <form id="sigForm">
         
-        <div class="mainLogoContainer">
-          <div class="verticalText">
-            <h1>Générateur de signature e‑mail Formagraph</h1>
-            <p class="sub">Remplissez les champs puis cliquez sur <b>Générer</b>. Copiez ensuite le code pour l'utiliser dans vos réglages de signature.</p>
+        <div class="introHeader">
+          <h1>Générateur de signature e‑mail Formagraph</h1>
+          <p class="sub">Remplissez les champs puis cliquez sur <b>Générer</b>. Copiez ensuite le code pour l'utiliser dans vos réglages de signature.</p>
+          <div class="introLogoVertical">
+            <img style="min-width: 100px;min-height: 50px;" class="mainLogoFormagraph" src="/assets/images/MaracorpLogo.png" alt="Logo Maracorp (production)">
+            <img style="min-width: 100px;min-height: 100px;" class="mainLogoMC" src="/assets/images/FormagraphLogo.jpg" alt="Logo Formagraph (client)">
           </div>
-          <img class="mainLogo" src="/assets/images/FormagraphLogo.jpg" alt="Logo Formagraph (client)">
-          <img class="mainLogo" src="/assets/images/MaracorpLogo.png" alt="Logo Maracorp (production)">
         </div>
-        
+
         <div class="grid">
           <div class="row">
             <label for="prenom">Prénom</label>
@@ -49,6 +49,10 @@
           <div class="row">
             <label for="tel">Téléphone</label>
             <input id="tel" name="tel" placeholder="+33 6 00 00 00 00" />
+          </div>
+          <div class="row">
+            <label for="fixe">Fixe</label>
+            <input id="fixe" name="fixe" placeholder="+33 9 00 00 00 00" />
           </div>
           <div class="row">
             <label for="email">E‑mail</label>
