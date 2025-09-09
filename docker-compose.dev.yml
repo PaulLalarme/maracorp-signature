@@ -5,4 +5,3 @@ services:
       - "8081:80"
     volumes:
       - ./site:/usr/share/nginx/html
-      - ./assets:/usr/share/nginx/html/assets

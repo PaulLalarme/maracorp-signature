@@ -63,6 +63,10 @@ function buildSignature(data) {
         )}</a></td></tr>`
       : "") +
     `</table>` +
+    `<img src="/assets/images/FormagraphLogo.jpg" alt="logo" style="display:block; width:110px; padding-top: 1rem; height:auto; border:0" />`
+    +
+    `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">FORMATION EN COMMUNICATION GRAPHIQUE ET MULTIMÉDIA</div>`
+    +
     (data.mentions
       ? `<div style="margin-top:10px; color:#64748b; font-size:11px; max-width:520px;">${escapeHtml(
           data.mentions
@@ -70,16 +74,12 @@ function buildSignature(data) {
       : "") +
     `</td>` +
     `<td style="padding:12px 0 12px 16px; vertical-align:top">` +
-    (data.logo
-      ? `<img src="${escapeHtml(
-          data.logo
-        )}" alt="logo" style="display:block; width:110px; height:auto; border:0" />
-        <div style="display: flex;">
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=5da7915c96&attid=0.0.1.2&permmsgid=msg-f:1827034365474188128&th=195aee134a852b60&view=fimg&fur=ip&permmsgid=msg-f:1827034365474188128&sz=s0-l75-ft&attbid=ANGjdJ_c4b1OIheARdD5Z_VBUXbdpb9JqE5_q9IWPE-thPKZVrY1dlEQ0tMwGRDgZ8Ekt9vsX5qzKtRvFy5KY1-VzxIdbt4YKDPvE8yyJoP9COfUTKls97Ord_4kNFg&disp=emb&zw" alt="logo" style="display:block; width:110px; height:auto; border:0" />
-            <img src="https://mail.google.com/mail/u/0?ui=2&ik=5da7915c96&attid=0.0.1.3&permmsgid=msg-f:1827034365474188128&th=195aee134a852b60&view=fimg&fur=ip&permmsgid=msg-f:1827034365474188128&sz=s0-l75-ft&attbid=ANGjdJ-oQnDXmXagJ3iTyLh0mCnTjpEJqR8dABrduERNuiiY4Rmx8DCkKmLrQCkxXC6u7RFEoG0NJWYg5FqlHv36uSVTz6esn-jmMGzFSA8Qw4_rJhsB0FnV4tsyYaI&disp=emb&zw" alt="logo" style="display:block; width:110px; height:auto; border:0" />
+     `<div style="display: flex;">
+            <img src="/assets/images/ACTlogo.jpg" alt="logo ACT" style="display:block; width:250px; height:auto; border:0" />
+            <img src="/assets/images/LogoQualiopi.jpg" alt="logo Qualiopi" style="display:block; width:200px; height:auto; border:0" />
         </div>
-        <img src="https://mail.google.com/mail/u/0?ui=2&ik=5da7915c96&attid=0.0.1.4&permmsgid=msg-f:1827034365474188128&th=195aee134a852b60&view=fimg&fur=ip&permmsgid=msg-f:1827034365474188128&sz=s0-l75-ft&attbid=ANGjdJ8pSvg_g3gXDcM-EE6CcEjLYQyn6OUO1YFDNdW4oMqOrJ5nq5_xmsxb1iTTSIeirQhAJEBNlx6ziNpPgcp_jJxePjVGhlXzHK10T48Vzs4k5P_Pcj4uiIK1tBs&disp=emb&zw" alt="logo" style="display:block; width:250px; height:auto; border:0" />`
-      : "") +
+        <img src="/assets/images/RNCP&Datadock&CPF&TosaLogos.png" alt="logo" style="display:block; width:300px; height:auto; border:0" />`
+      +
     `</td>` +
     `</tr>` +
     `</table>`
