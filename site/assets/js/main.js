@@ -78,7 +78,7 @@ function buildSignature(data) {
             <img src="/assets/images/ACTlogo.jpg" alt="logo ACT" style="display:block; width:250px; height:auto; border:0" />
             <img src="/assets/images/LogoQualiopi.jpg" alt="logo Qualiopi" style="display:block; width:200px; height:auto; border:0" />
         </div>
-        <img src="/assets/images/RNCP&Datadock&CPF&TosaLogos.png" alt="logo" style="display:block; width:300px; height:auto; border:0" />`
+        <img src="/assets/images/RNCP_Datadock_CPF_TosaLogos.png" alt="logo" style="display:block; width:300px; height:auto; border:0" />`
       +
     `</td>` +
     `</tr>` +
