@@ -118,7 +118,7 @@ textarea {
   margin-bottom: 12px;
   }
 
-  .
+  
 }
 
 button {
@@ -167,19 +167,8 @@ button.ghost {
   height: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
-
-.introHeader .introLogoVertical > img {
-  width: 100px;
-}
-
-
-.introHeader .introLogoVertical .mainLogoMC > img {
-  
-  height: 10vh;
-}
-
-
 
 .code {
   background: #0f172a;
