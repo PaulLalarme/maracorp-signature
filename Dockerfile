@@ -1,9 +1,9 @@
 FROM nginx:alpine
 
-# config nginx custom
+# config nginx (elle inclut bien /etc/nginx/mime.types)
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# site statique
+# 👇 copie TOUT le contenu de /site dans l'image
 COPY site/ /usr/share/nginx/html/
 
 # santé (facultatif)
